@@ -1,5 +1,0 @@
-project-root/
-│-- data/                  
-│   ├── train.csv
-│   ├── test.csv
-
