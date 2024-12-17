@@ -91,23 +91,6 @@ Python: 3.8
 
 pip install pandas numpy matplotlib seaborn lightgbm catboost optuna scikit-learn
 
-### **ファイル構成**
-```text
-project-root/
-│-- data/                  # データ格納ディレクトリ
-│   ├── train.csv
-│   ├── test.csv
-│-- notebooks/             # Jupyter Notebook
-│   ├── eda.ipynb          # EDAのノートブック
-│   ├── model_training.ipynb  # モデル学習
-│-- src/                   # ソースコード格納ディレクトリ
-│   ├── preprocessing.py   # 前処理関数
-│   ├── train_model.py     # モデル学習スクリプト
-│-- results/               # 結果ファイル（グラフ、モデル、予測など）
-│-- README.md              # プロジェクト概要
-│-- requirements.txt       # 必要なライブラリ一覧
-
-
 ### **まとめ**
 本プロジェクトでは、顧客の債務不履行リスクを予測するためにEDAとLightGBM、CatBoostを活用しました。
 現在のF1スコアは 0.4138 であり、CatBoostの結果を踏まえ、さらなる精度改善を目指します。
