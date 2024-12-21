@@ -34,46 +34,29 @@
    - - 債務不履行: 20%
 
 ### **主なEDA結果とインサイト**
-1. Burden Index（負担指数）と Monthly Payment（月々の支払額）の関係
-傾向：
+1. Burden Index（負担指数）と Monthly Payment（月々の支払額）の関係：
 
 Burden Index が高いほど、債務不履行の割合 が増える傾向が見られます。
 返済期間（36ヶ月 と 60ヶ月）が月々の支払額に影響し、2つのクラスターに分かれます。
 
-2. Loan Amount（借入額）と Monthly Payment（支払額）
-傾向：
+2. Loan Amount（借入額）と Monthly Payment（支払額）の傾向：
 
 完済（青） と 不履行（赤） の比較において、
 月々の支払額が多い場合、不履行のリスクが高まる傾向があります。
 
-3. Credit Score、Loan Status、Interest Rate（利率） 
-傾向:
+3. Credit Score、Loan Status、Interest Rate（利率）の 傾向:
 
 グレイドとクレジットスコアが高いほど、金利（interest_rate）も高くなり、債務不履行の可能性が増加します。
 また、目的別で債務不履行の傾向を確認すると住宅リフォームの目的で借入する場合は、債務不履行になる可能性が低いです。
 
 ### 前処理**
 1. employment_length の前処理
-employment_length 列は、借り手の勤務年数を表す特徴量です。この列には以下のような形式のデータが含まれていました：
-
-"10 years"
-"< 1 year"
-"2 years"
-NaN（欠損値）
-このままでは文字列型であるため、数値型の特徴量として利用するには以下のような変換が必要でした：
+employment_length 列は、借り手の勤務年数を表す特徴量です。この列は文字列型なので、数値型の特徴量として利用するには以下のような変換が必要でした：
 
 "10 years" や "2 years" の文字列部分（years や year）を削除し、純粋な数値に変換。
 "< 1 year" を特別に扱い、0 に変換。
 NaN（欠損値）はそのまま保持して、後続の処理やモデルで適切に扱えるようにする。
-これを実現するために、以下のような処理関数 process_employment_length を定義しました：
-def process_employment_length(value):
-    if pd.isna(value):  # 欠損値（NaN）の場合
-        return np.nan
-    # 'years' または 'year' を削除
-    value = re.sub(r' years| year', '', value)
-    # '< 1' を '0' に置き換え
-    value = re.sub(r'< 1', '0', value)
-    return float(value.strip())  # 数値型に変換
+これを実現するために処理関数 process_employment_length を定義しました：
 
 正規表現の使用理由:
 'years' や 'year' を削除する処理を一貫して簡潔に記述するために使用しました。
@@ -82,7 +65,7 @@ def process_employment_length(value):
 2. term の前処理
 term 列は、ローンの返済期間（例："36 years"）を表しています。この列も文字列型で提供されており、数値型に変換する必要がありました。
 
-以下のような処理を行いました：
+そこで、以下のような処理を行いました：
 
 "years" の部分を削除。
 結果を数値型（float）に変換。
@@ -97,6 +80,7 @@ term 列は、ローンの返済期間（例："36 years"）を表していま�
 機械学習モデルは数値型データを扱う:
 
 employment_length や term のような文字列データは、そのままではモデルに入力できないため、数値型に変換しました。
+
 欠損値（NaN）の保持:
 
 欠損値を削除せずに保持することで、モデルがその特徴を考慮できるようにしました。LightGBM のようなツリーベースのモデルは NaN を直接扱えるため、この選択を採用しました。
