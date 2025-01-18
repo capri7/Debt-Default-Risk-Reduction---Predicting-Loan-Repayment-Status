@@ -93,7 +93,14 @@ $5,000以上の借入額では、債務不履行の割合が急激に増加。
 提案: 最大貸付額を調整することで、リスクを軽減し、健全な貸付ポートフォリオを維持する。
 
 
+3. Monthly paymentとLoan statusの関係：
 
+![monthly_payment payment by Loan status](images/4.monthly_payment_loan_status.png)
+
+
+分布は右にテールが長く、短期で返済計画を立てている人のほうが、完済している確率が高いです。
+
+完済期間が100ヶ月以上になると、債務不履行の確率が50%近くになります。
 
 
 
