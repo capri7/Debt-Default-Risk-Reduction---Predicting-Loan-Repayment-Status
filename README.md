@@ -24,7 +24,7 @@
    - `0`: Fully Paid（完済）  
    - `1`: Charged Off（債務不履行）
 
-  <img src="1.distribution_target.png" alt="目的変数の分布" width="600">
+ ![目的変数の分布](images/1.distribution_target.png)
 
 ### **データ概要とEDAのインサイト**
 - **データの特徴**
