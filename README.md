@@ -391,6 +391,7 @@ def process_employment_length(value):
 # データフレームに適用
 df['employment_length'] = df['employment_length'].apply(process_employment_length)
 
+```
 ---
 
 #### **2. `term` の前処理**
@@ -430,6 +431,7 @@ def process_term(value):
 # データフレームに適用
 df['term'] = df['term'].apply(process_term)
 
+```
 ---
 
 #### **3. `interest_rate` の正規化**
@@ -461,6 +463,7 @@ def normalize_interest_rate(value):
 # データフレームに適用
 df['interest_rate'] = df['interest_rate'].apply(normalize_interest_rate)
 
+```
 ---
 
 #### **4. `grade` のラベルエンコーディング**
@@ -499,6 +502,7 @@ grade_mapping = {
 # データフレームにラベルエンコーディングを適用
 df['grade'] = df['grade'].map(grade_mapping)
 
+```
 ---
 
 #### **5. 月利と返済回数の計算**
@@ -539,6 +543,7 @@ def calculate_monthly_payment(loan_amnt, annual_rate, term_months):
 # データフレームに適用
 df['monthly_payment'] = df.apply(lambda row: calculate_monthly_payment(row['loan_amnt'], row['interest_rate'], row['term']), axis=1)
 
+```
 ---
 
 #### **6. 負担指数（burden_index）の計算**
@@ -571,6 +576,7 @@ df['monthly_payment'] = df.apply(lambda row: calculate_monthly_payment(row['loan
 # 負担指数の計算
 df['burden_index'] = df['total_payment'] / df['credit_score']
 
+```
 ---
 
 ### 数値変数の相関関係
@@ -764,6 +770,7 @@ df['burden_index'] = df['total_payment'] / df['credit_score']
 ```bash
 pip install pandas numpy matplotlib seaborn lightgbm catboost optuna scikit-learn
 
+```
 ---
 
 ### **今後の課題と改善点**
