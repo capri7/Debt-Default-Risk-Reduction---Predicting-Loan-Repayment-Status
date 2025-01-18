@@ -40,7 +40,7 @@
 ### **主なEDA結果とインサイト**
 1. interest_rateとcredit_scoreの関係：
 
-![目的変数の分布](images/2.interest_credit_score.png)
+![金利とクレジットスコア](images/2.interest_credit_score.png)
 
 #### クレジットスコアが低いほど金利が高い
 
@@ -65,10 +65,11 @@
 #### リスク予測モデルへの活用
 クレジットスコアと金利の相関をモデルの重要な特徴量として活用することで、より精度の高い債務不履行リスクの予測が可能になると考えられます。
 
+2. Total paymentとLoan statusの関係：
 
+![Total payment by Loan status](images/3.total_payment_loan_status.png)
 
-
-
+Total paymentは1000ドル前後に集中しています。5000ドル以上を借入している場合、半数が債務不履行になっています。
 
 1. Burden Index（負担指数）と Monthly Payment（月々の支払額）の関係：
 
