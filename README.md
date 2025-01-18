@@ -65,6 +65,7 @@
 2. **リスク予測モデルへの活用**
    - クレジットスコアと金利の相関をモデルの重要な特徴量として活用することで、より精度の高い債務不履行リスクの予測が可能になります。
 
+---
 
 ### **2. Total Payment と Loan Status の関係**
 ![Distribution of Total Payment by Loan Status](images/3.total_payment_loan_status.png)
