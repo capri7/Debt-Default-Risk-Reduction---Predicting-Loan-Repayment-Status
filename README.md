@@ -1,4 +1,4 @@
-# **【練習問題】Debt Default Risk Reduction - Predicting Loan Repayment Status**
+# **Debt Default Risk Reduction - Predicting Loan Repayment Status**
 
 ## **プロジェクト概要 (Project Overview)**
 このプロジェクトでは、顧客データ（借入総額、返済期間、金利、借入目的など）を活用して、債務不履行リスクを予測するモデルを構築しました。目的は、リスクの高い顧客を特定し、債務不履行を未然に防ぐ方法を見出すことです。
